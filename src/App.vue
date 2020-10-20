@@ -3,22 +3,20 @@
     <component :is="layout">
       <router-view />
     </component>
-    
   </div>
 </template>
 
 <script>
-import MainLayout from './layouts/MainLayout';
-export default{
+import MainLayout from './layouts/MainLayout'
+export default {
   computed: {
-    layout(){
-      console.log(this.$route.meta)
+    layout() {
       return 'main-layout'
-    }
+    },
   },
   components: {
-    MainLayout
-  }
+    MainLayout,
+  },
 }
 </script>
 

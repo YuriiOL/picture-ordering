@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import picturesData from './pictures-data'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    cart: [],
   },
-  mutations: {
+  getters: {
+    cart: (state) => state.cart,
   },
-  actions: {
-  },
+  mutations: {},
+  actions: {},
   modules: {
-  }
+    picturesData,
+  },
 })

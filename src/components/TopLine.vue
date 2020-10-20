@@ -1,0 +1,34 @@
+<template>
+  <div class="cb-top-line">
+    <div class="cb-step cb-step--current" data-step="cb-item1" id="cb-step1">
+      <p>
+        <span>1</span>
+        Изображение
+      </p>
+    </div>
+    <div class="cb-step" data-step="cb-item2" id="cb-step2">
+      <p>
+        <span>2</span>
+        Рама
+      </p>
+    </div>
+    <div class="cb-step" data-step="cb-item3" id="cb-step3">
+      <p>
+        <span>3</span>
+        Заголовок
+      </p>
+    </div>
+    <div class="cb-step" data-step="cb-item4" id="cb-step4">
+      <p>
+        <span>4</span>
+        Цвет отпечатков
+      </p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {}
+</script>
+
+<style lang="scss" scoped></style>
