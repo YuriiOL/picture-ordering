@@ -37,6 +37,9 @@ export default {
       this.chosenPicture = element
     },
   },
+  mounted() {
+    this.$message('Выберите картину!')
+  },
 }
 </script>
 

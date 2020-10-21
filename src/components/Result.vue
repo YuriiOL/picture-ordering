@@ -8,13 +8,13 @@
         <p class="cb-result__data">
           <span>Изображение:</span>
           <strong></strong>
-          <strong v-if="piscture.length === 0">Не выбрано</strong>
-          <strong v-else>{{ piscture[0].name }}</strong>
+          <strong v-if="result.length <= 0">Не выбрано</strong>
+          <strong v-else>{{ result[0].name }}</strong>
         </p>
         <p class="cb-result__data">
           <span>Рама:</span>
-          <strong></strong>
-          <strong>Не выбрано</strong>
+          <strong v-if="result.length <= 1">Не выбрано</strong>
+          <strong v-else>{{ result[0].name }}</strong>
         </p>
         <div class="cb-result__data">
           <span>Отпечатки:</span>
@@ -23,19 +23,24 @@
         <div class="cb-result__object">
           <div class="cb-result__img">
             <img
-              :src="piscture.length > 0 ? piscture[0].src : null"
-              :alt="piscture.length > 0 ? piscture[0].name : null"
+              :src="result.length > 0 ? result[0].src : null"
+              :alt="result.length > 0 ? result[0].name : null"
             />
           </div>
-          <div class="cb-result__border"></div>
+          <div class="cb-result__border">
+            <img
+              :src="result.length > 1 ? result[1].src : null"
+              :alt="result.length > 1 ? result[1].name : null"
+            />
+          </div>
           <p class="cb-result__text__title ariston"></p>
           <p class="cb-result__text__name ariston"></p>
           <p class="cb-result__text__date ariston"></p>
         </div>
       </div>
       <div class="cb-result__bottom">
-        <form action="" method="POST">
-          <p class="cb-next">Далее</p>
+        <form action="" method="POST" @submit.prevent="submitHandler">
+          <button class="cb-next" type="submit">Далее</button>
           <input name="result" id="" type="text" hidden="" />
         </form>
       </div>
@@ -44,11 +49,21 @@
 </template>
 
 <script>
+import {} from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
-      piscture: this.$store.state.cart,
+      result: this.$store.state.cart,
     }
+  },
+  methods: {
+    submitHandler() {
+      if (this.result == 0) {
+        this.$error('Сначала нужно выбрать картинку!')
+        return
+      }
+      this.$router.push('/borders')
+    },
   },
 }
 </script>

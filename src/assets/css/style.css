@@ -259,7 +259,8 @@ a:hover {
   color: #8dbc55;
 }
 .select {
-  border: 3px solid #8dbc55;
+  box-sizing: border-box;
+  border: 1px solid #8dbc55;
 }
 ::selection {
   color: #fff;
@@ -1274,6 +1275,7 @@ nav {
 }
 .cb-result__bottom .cb-next {
   display: block;
+  border: none;
   margin: 45px auto 20px;
   height: 50px;
   width: 250px;
