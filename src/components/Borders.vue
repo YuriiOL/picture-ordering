@@ -12,17 +12,22 @@
     >
       <img
         :src="border.src"
-        alt="Багетная №1"
-        title="Багетная №1"
+        :alt="border.name"
+        :title="border.name"
         width="120"
         height="150"
       />
-      <a
+      <router-link
         class="cb-item-border__prev fancybox gallery"
-        href="./img/borders/prev.15.jpg"
+        :to="{
+          name: 'PopupPage',
+          params: { id: ' 123' },
+          query: { border, route: routeForSending },
+        }"
         title="Багетная №15"
         rel="gal-14"
-      ></a>
+        v-if="border.popup != null"
+      ></router-link>
     </div>
   </div>
 </template>
@@ -33,6 +38,7 @@ export default {
     return {
       borders: this.$store.state.bordersData.borders,
       chosenBorder: null,
+      routeForSending: this.$route.path,
     }
   },
   methods: {

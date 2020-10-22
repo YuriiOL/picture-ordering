@@ -62,9 +62,6 @@ export default {
       currentClass: { class: 'cb-step--current' },
     }
   },
-  mounted() {
-    console.log(this.$router.history.current.path)
-  },
 }
 </script>
 

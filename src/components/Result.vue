@@ -58,11 +58,22 @@ export default {
   },
   methods: {
     submitHandler() {
-      if (this.result == 0) {
-        this.$error('Сначала нужно выбрать картинку!')
-        return
+      if (this.$route.path === '/') {
+        if (this.result.length == 0) {
+          this.$error('Сначала нужно выбрать картинку!')
+          return
+        } else {
+          this.$router.push('/borders')
+        }
       }
-      this.$router.push('/borders')
+      if (this.$route.path === '/borders') {
+        if (this.result.length == 1) {
+          this.$error('Сначала нужно выбрать раму!')
+          return
+        } else {
+          this.$router.push('/titles')
+        }
+      }
     },
   },
 }

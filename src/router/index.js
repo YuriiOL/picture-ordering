@@ -9,42 +9,54 @@ const routes = [
     path: '/',
     name: 'PicturesPage',
     meta: {
-      layout: 'main'
+      layout: 'main',
     },
-    component: PicturesPage
+    component: PicturesPage,
   },
-  
+
   {
     path: '/borders',
     name: 'BordersPage',
     meta: {
-      layout: 'main'
+      layout: 'main',
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "BordersPage" */ '../views/BordersPage.vue')
+    component: () =>
+      import(/* webpackChunkName: "BordersPage" */ '../views/BordersPage.vue'),
   },
   {
     path: '/titles',
     name: 'TitlesPage',
     meta: {
-      layout: 'main'
+      layout: 'main',
     },
-    component: () => import(/* webpackChunkName: "PicturesPage" */ '../views/TitlesPage.vue')
+    component: () =>
+      import(/* webpackChunkName: "PicturesPage" */ '../views/TitlesPage.vue'),
   },
   {
     path: '/colors',
     name: 'ColorsPage',
     meta: {
-      layout: 'main'
+      layout: 'main',
     },
-    component: () => import(/* webpackChunkName: "PicturesPage" */ '../views/ColorsPage.vue')
+    component: () =>
+      import(/* webpackChunkName: "PicturesPage" */ '../views/ColorsPage.vue'),
+  },
+  {
+    path: '/popups/:id',
+    name: 'PopupPage',
+    meta: {
+      layout: 'popup',
+    },
+    component: () =>
+      import(/* webpackChunkName: "PicturesPage" */ '../views/PopupPage.vue'),
   },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
 export default router

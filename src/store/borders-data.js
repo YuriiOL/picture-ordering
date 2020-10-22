@@ -19,6 +19,11 @@ export default {
         name: 'Багетная №3',
         src: require('../assets/img/borders/rama-03.png'),
         price: 560,
+        popup: [
+          require('../assets/img/borders/prev.03.jpg'),
+          require('../assets/img/borders/prev.03.1.jpg'),
+          require('../assets/img/borders/prev.03.2.jpg'),
+        ],
       },
 
       {
@@ -26,6 +31,7 @@ export default {
         name: 'Багетная №4',
         src: require('../assets/img/borders/rama-04.png'),
         price: 570,
+        popup: [require('../assets/img/borders/prev.04.jpg')],
       },
 
       {
@@ -33,6 +39,7 @@ export default {
         name: 'Багетная №5',
         src: require('../assets/img/borders/rama-05.png'),
         price: 580,
+        popup: [require('../assets/img/borders/prev.05.jpg')],
       },
 
       {
@@ -40,6 +47,7 @@ export default {
         name: 'Багетная №6',
         src: require('../assets/img/borders/rama-06.png'),
         price: 590,
+        popup: [require('../assets/img/borders/prev.06.jpg')],
       },
 
       {
@@ -47,6 +55,7 @@ export default {
         name: 'Багетная №7',
         src: require('../assets/img/borders/rama-07.png'),
         price: 600,
+        popup: [require('../assets/img/borders/prev.07.jpg')],
       },
 
       {
@@ -54,6 +63,7 @@ export default {
         name: 'Багетная №8',
         src: require('../assets/img/borders/rama-08.png'),
         price: 610,
+        popup: [require('../assets/img/borders/prev.08.jpg')],
       },
 
       {
@@ -61,6 +71,7 @@ export default {
         name: 'Багетная №9',
         src: require('../assets/img/borders/rama-09.png'),
         price: 620,
+        popup: [require('../assets/img/borders/prev.09.jpg')],
       },
 
       {
@@ -68,6 +79,7 @@ export default {
         name: 'Багетная №10',
         src: require('../assets/img/borders/rama-10.png'),
         price: 630,
+        popup: [require('../assets/img/borders/prev.10.jpg')],
       },
 
       {
@@ -75,6 +87,7 @@ export default {
         name: 'Багетная №11',
         src: require('../assets/img/borders/rama-11.png'),
         price: 640,
+        popup: [require('../assets/img/borders/prev.11.jpg')],
       },
 
       {
@@ -82,6 +95,7 @@ export default {
         name: 'Багетная №12',
         src: require('../assets/img/borders/rama-12.png'),
         price: 650,
+        popup: [require('../assets/img/borders/prev.12.jpg')],
       },
 
       {
@@ -89,6 +103,7 @@ export default {
         name: 'Багетная №13',
         src: require('../assets/img/borders/rama-13.png'),
         price: 670,
+        popup: [require('../assets/img/borders/prev.13.jpg')],
       },
 
       {
@@ -96,6 +111,7 @@ export default {
         name: 'Багетная №14',
         src: require('../assets/img/borders/rama-14.png'),
         price: 680,
+        popup: [require('../assets/img/borders/prev.14.jpg')],
       },
 
       {
@@ -103,6 +119,7 @@ export default {
         name: 'Багетная №15',
         src: require('../assets/img/borders/rama-15.png'),
         price: 690,
+        popup: [require('../assets/img/borders/prev.15.jpg')],
       },
     ],
   },
