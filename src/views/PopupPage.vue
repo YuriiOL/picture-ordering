@@ -19,7 +19,7 @@ export default {
     nextPicuture() {
       this.i++
       if (this.i === this.border.popup.length) {
-        this.i = 0
+        this.$router.push(this.$route.query.route)
       }
     },
   },

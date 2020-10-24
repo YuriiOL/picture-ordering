@@ -5,7 +5,7 @@
       v-for="border of borders"
       :key="border.id"
       @click="
-        decideBorder(border)
+        decideBorder($event, border)
         addSelect(border.id)
       "
       :class="{ select: border.id == chosenBorder }"
@@ -24,7 +24,7 @@
           params: { id: ' 123' },
           query: { border, route: routeForSending },
         }"
-        title="Багетная №15"
+        :title="border.name"
         rel="gal-14"
         v-if="border.popup != null"
       ></router-link>
@@ -42,15 +42,17 @@ export default {
     }
   },
   methods: {
-    decideBorder(element) {
+    decideBorder(event, element) {
+      // compera if it <a></a> element return, if not go next
+
+      if (this.$children[element.id].tag == event.path[0].localName) {
+        return
+      }
       this.$store.state.cart.splice(1, 1, element)
     },
     addSelect(element) {
       this.chosenBorder = element
     },
-  },
-  mounted() {
-    this.$message('Выберите раму!')
   },
 }
 </script>

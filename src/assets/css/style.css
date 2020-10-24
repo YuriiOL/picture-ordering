@@ -1580,9 +1580,7 @@ nav {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-.cb-item__line {
-  margin-bottom: 20px;
-}
+
 .cb-item__line input {
   height: 40px;
   width: 250px;
@@ -1643,28 +1641,7 @@ nav {
 .brody {
   font-family: 'Brody';
 }
-.btn-font {
-  display: inline-block;
-  height: 40px;
-  width: 100px;
-  margin-right: 10px;
-  -webkit-border-radius: 16px;
-  border-radius: 16px;
-  color: #8dbc55;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
-  -webkit-box-shadow: 0 0 0 1px #8dbc55 inset;
-  box-shadow: 0 0 0 1px #8dbc55 inset;
-  cursor: pointer;
-}
-.btn-font:last-child {
-  margin-right: 0;
-}
-.btn-font--active {
-  color: #fff;
-  background-color: #8dbc55;
-}
+
 .cb-bottom-line {
   position: absolute;
   bottom: 0;

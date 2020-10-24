@@ -14,7 +14,7 @@
         <p class="cb-result__data">
           <span>Рама:</span>
           <strong v-if="result.length <= 1">Не выбрано</strong>
-          <strong v-else>{{ result[0].name }}</strong>
+          <strong v-else>{{ result[1].name }}</strong>
         </p>
         <div class="cb-result__data">
           <span>Отпечатки:</span>
@@ -33,9 +33,27 @@
               :alt="result.length > 1 ? result[1].name : null"
             />
           </div>
-          <p class="cb-result__text__title ariston"></p>
-          <p class="cb-result__text__name ariston"></p>
-          <p class="cb-result__text__date ariston"></p>
+          <p
+            class="cb-result__text__title"
+            v-if="result.length == 3"
+            :class="result[2].font"
+          >
+            {{ result[2].title }}
+          </p>
+          <p
+            class="cb-result__text__name"
+            v-if="result.length == 3"
+            :class="result[2].font"
+          >
+            {{ result[2].signature }}
+          </p>
+          <p
+            class="cb-result__text__date"
+            v-if="result.length == 3"
+            :class="result[2].font"
+          >
+            {{ result[2].date }}
+          </p>
         </div>
       </div>
       <div class="cb-result__bottom">
@@ -49,7 +67,6 @@
 </template>
 
 <script>
-import {} from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
@@ -64,6 +81,7 @@ export default {
           return
         } else {
           this.$router.push('/borders')
+          this.$message('Выберите раму!')
         }
       }
       if (this.$route.path === '/borders') {
@@ -72,6 +90,15 @@ export default {
           return
         } else {
           this.$router.push('/titles')
+          this.$message('Введите данные на этой странице, и выберите шрифт!')
+        }
+      }
+      if (this.$route.path === '/titles') {
+        if (this.result.length == 2) {
+          this.$error('Сначала нужно ввести все данные, и выбрать шрифт!')
+          return
+        } else {
+          this.$router.push('/colors')
         }
       }
     },
@@ -79,4 +106,26 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@font-face {
+  font-family: Ariston;
+  src: url('../assets/fonts/ariston/ariston-webfont.ttf') format('truetype');
+}
+@font-face {
+  font-family: Brody;
+  src: url('../assets/fonts/brody/jabgndg5-webfont.ttf') format('truetype');
+}
+@font-face {
+  font-family: DaVinci;
+  src: url('../assets/fonts/davinci/davinci-webfont.ttf') format('truetype');
+}
+.Ariston {
+  font-family: Ariston;
+}
+.Brody {
+  font-family: Brody;
+}
+.DaVinci {
+  font-family: DaVinci;
+}
+</style>
