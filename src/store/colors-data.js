@@ -1,0 +1,76 @@
+export default {
+  state: {
+    colors: [
+      {
+        id: 1,
+        name: 'BahamaBlue',
+        src: require('../assets/img/marks/BahamaBlue.jpg'),
+        minColors: require('../assets/img/marks/colors/1.png'),
+        select: false,
+      },
+      {
+        id: 2,
+        name: 'BambooLeaves',
+        src: require('../assets/img/marks/BambooLeaves.jpg'),
+        minColors: require('../assets/img/marks/colors/2.png'),
+        select: false,
+      },
+      {
+        id: 3,
+        name: 'LilacPosies',
+        src: require('../assets/img/marks/LilacPosies.jpg'),
+        minColors: require('../assets/img/marks/colors/3.png'),
+        select: false,
+      },
+      {
+        id: 4,
+        name: 'PearTart',
+        src: require('../assets/img/marks/PearTart.jpg'),
+        minColors: require('../assets/img/marks/colors/4.png'),
+        select: false,
+      },
+      {
+        id: 5,
+        name: 'RhubarbStalk',
+        src: require('../assets/img/marks/RhubarbStalk.jpg'),
+        minColors: require('../assets/img/marks/colors/5.jpg'),
+        select: false,
+      },
+      {
+        id: 6,
+        name: 'Tangelo',
+        src: require('../assets/img/marks/Tangelo.jpg'),
+        minColors: require('../assets/img/marks/colors/6.jpg'),
+        select: false,
+      },
+      {
+        id: 7,
+        name: 'CottageIvy',
+        src: require('../assets/img/marks/CottageIvy.jpg'),
+        minColors: require('../assets/img/marks/colors/7.png'),
+        select: false,
+      },
+      {
+        id: 8,
+        name: 'PearTart',
+        src: require('../assets/img/marks/PearTart.jpg'),
+        minColors: require('../assets/img/marks/colors/8.png'),
+        select: false,
+      },
+      {
+        id: 9,
+        name: 'BahamaBlue',
+        src: require('../assets/img/marks/BahamaBlue.jpg'),
+        minColors: require('../assets/img/marks/colors/1.png'),
+        select: false,
+      },
+      {
+        id: 10,
+        name: 'PottersClay',
+        src: require('../assets/img/marks/PottersClay.jpg'),
+        minColors: require('../assets/img/marks/colors/6.jpg'),
+        select: false,
+      },
+    ],
+  },
+}

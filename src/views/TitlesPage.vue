@@ -1,5 +1,5 @@
 <template>
-  <form class="cb-item" @submit="submitHandler">
+  <form class="cb-item" @submit.prevent="submitTitles">
     <p class="cb-item__title">
       Заголовок
     </p>
@@ -15,8 +15,7 @@
         placeholder="Наша Свадьба"
         maxlength="22"
         type="text"
-        v-model="title"
-        :class="{ invalid: $v.title.$dirty && !$v.title.required }"
+        v-model="$store.state.title"
       />
       <span>Заголовок картины</span>
     </div>
@@ -26,8 +25,7 @@
         placeholder="Анастасия и Константин"
         maxlength="36"
         type="text"
-        v-model="signature"
-        :class="{ invalid: $v.signature.$dirty && !$v.signature.required }"
+        v-model="$store.state.signature"
       />
       <span>Подпись</span>
     </div>
@@ -37,8 +35,7 @@
         placeholder="29 июля 2015"
         maxlength="26"
         type="text"
-        v-model="date"
-        :class="{ invalid: $v.date.$dirty && !$v.date.required }"
+        v-model="$store.state.date"
       />
       <span>Дата события</span>
     </div>
@@ -48,7 +45,7 @@
         class="btn-font"
         type="submit"
         @click="addTitles($event)"
-        :class="{ Ariston: font == ' Ariston ' }"
+        :class="{ Ariston: $store.state.font == ' Ariston ' }"
       >
         Ariston
       </button>
@@ -57,7 +54,7 @@
         class="btn-font"
         type="submit"
         @click="addTitles($event)"
-        :class="{ Ariston: font == ' DaVinci ' }"
+        :class="{ Ariston: $store.state.font == ' DaVinci ' }"
       >
         DaVinci
       </button>
@@ -66,7 +63,7 @@
         class="btn-font"
         type="submit"
         @click="addTitles($event)"
-        :class="{ Ariston: font == ' Brody ' }"
+        :class="{ Ariston: $store.state.font == ' Brody ' }"
       >
         Brody
       </button>
@@ -75,46 +72,11 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { mapMutations } from 'vuex'
 export default {
-  data() {
-    return {
-      title: '',
-      signature: '',
-      date: '',
-      font: '',
-      titles: null,
-    }
-  },
-  validations: {
-    title: { required },
-    signature: { required },
-    date: { required },
-  },
   methods: {
-    addTitles(e) {
-      if (this.$v.$invalid) {
-        this.$v.$touch()
-        return
-      }
-      this.font = e.path[0].innerHTML
-    },
-    submitHandler() {
-      if (this.$v.$invalid) {
-        this.$v.$touch()
-        return
-      }
-      this.titles = {
-        title: this.title,
-        signature: this.signature,
-        date: this.date,
-        font: this.font,
-        price: 0,
-      }
-      this.$store.state.cart.splice(2, 1, this.titles)
-    },
+    ...mapMutations(['addTitles', 'submitTitles']),
   },
-  mounted() {},
 }
 </script>
 

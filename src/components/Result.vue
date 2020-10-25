@@ -17,8 +17,19 @@
           <strong v-else>{{ result[1].name }}</strong>
         </p>
         <div class="cb-result__data">
-          <span>Отпечатки:</span>
-          <strong>Не выбраны</strong>
+          <span
+            >Отпечатки:
+            <span v-if="result.length > 3">
+              <img
+                class="colors"
+                :src="chco.minColors"
+                alt=""
+                v-for="chco of result[3].color"
+                :key="chco.id"
+              />
+            </span>
+            <strong v-else>Не выбраны</strong></span
+          >
         </div>
         <div class="cb-result__object">
           <div class="cb-result__img">
@@ -35,21 +46,21 @@
           </div>
           <p
             class="cb-result__text__title"
-            v-if="result.length == 3"
+            v-if="result.length >= 3"
             :class="result[2].font"
           >
             {{ result[2].title }}
           </p>
           <p
             class="cb-result__text__name"
-            v-if="result.length == 3"
+            v-if="result.length >= 3"
             :class="result[2].font"
           >
             {{ result[2].signature }}
           </p>
           <p
             class="cb-result__text__date"
-            v-if="result.length == 3"
+            v-if="result.length >= 3"
             :class="result[2].font"
           >
             {{ result[2].date }}
@@ -58,7 +69,9 @@
       </div>
       <div class="cb-result__bottom">
         <form action="" method="POST" @submit.prevent="submitHandler">
-          <button class="cb-next" type="submit">Далее</button>
+          <button class="cb-next" type="submit">
+            Далее
+          </button>
           <input name="result" id="" type="text" hidden="" />
         </form>
       </div>
@@ -67,13 +80,18 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       result: this.$store.state.cart,
     }
   },
+  computed: {
+    ...mapGetters(['title', 'signature', 'date', 'font']),
+  },
   methods: {
+    ...mapMutations(['submitTitles']),
     submitHandler() {
       if (this.$route.path === '/') {
         if (this.result.length == 0) {
@@ -94,10 +112,17 @@ export default {
         }
       }
       if (this.$route.path === '/titles') {
-        if (this.result.length == 2) {
+        if (
+          this.result.length == 2 ||
+          this.title == '' ||
+          this.signature == '' ||
+          this.date == '' ||
+          this.font == ''
+        ) {
           this.$error('Сначала нужно ввести все данные, и выбрать шрифт!')
           return
         } else {
+          this.submitTitles()
           this.$router.push('/colors')
         }
       }
@@ -127,5 +152,11 @@ export default {
 }
 .DaVinci {
   font-family: DaVinci;
+}
+.colors {
+  width: 13px;
+  height: 13px;
+  margin-right: 2px;
+  border-radius: 3px;
 }
 </style>
