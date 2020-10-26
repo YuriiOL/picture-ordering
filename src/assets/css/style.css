@@ -1113,7 +1113,7 @@ nav {
   font-size: 12px;
   cursor: pointer;
 }
-.cb-step:first-child p:before {
+.cb-step:first-child p {
   border-left: none;
 }
 .cb-step p:before {

@@ -37,9 +37,11 @@ export default {
         color: this.chosenColors,
         price: this.chosenColors.length >= 3 ? 10 : 0,
       })
-      console.log(this.chosenColors)
-      console.log(this.$store.state.cart)
     },
+  },
+  mounted() {
+    this.$message('Выберите цвет отпечатков!')
+    this.$store.state.router = '/colors'
   },
 }
 </script>

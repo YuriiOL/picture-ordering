@@ -77,6 +77,9 @@ export default {
   methods: {
     ...mapMutations(['addTitles', 'submitTitles']),
   },
+  mounted() {
+    this.$store.state.router = '/titles'
+  },
 }
 </script>
 

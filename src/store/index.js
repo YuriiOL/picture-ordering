@@ -14,6 +14,7 @@ export default new Vuex.Store({
     date: '',
     font: '',
     titles: null,
+    router: '',
   },
   getters: {
     cart: (state) => state.cart,
@@ -22,6 +23,7 @@ export default new Vuex.Store({
     date: (state) => state.date,
     font: (state) => state.font,
     titles: (state) => state.titles,
+    router: (state) => state.router,
   },
   mutations: {
     submitTitles(state) {

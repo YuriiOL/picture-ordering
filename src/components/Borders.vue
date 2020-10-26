@@ -54,6 +54,9 @@ export default {
       this.chosenBorder = element
     },
   },
+  mounted() {
+    this.$store.state.router = '/borders'
+  },
 }
 </script>
 

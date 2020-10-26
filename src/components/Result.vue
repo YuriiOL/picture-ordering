@@ -126,6 +126,14 @@ export default {
           this.$router.push('/colors')
         }
       }
+      if (this.$route.path === '/colors') {
+        if (this.result.length == 3) {
+          this.$error('Cначала нужно выбрать цвет отпечатков!')
+          return
+        } else {
+          console.log(this.result)
+        }
+      }
     },
   },
 }

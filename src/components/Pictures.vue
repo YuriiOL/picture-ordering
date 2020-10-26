@@ -39,6 +39,7 @@ export default {
   },
   mounted() {
     this.$message('Выберите картину!')
+    this.$store.state.router = '/'
   },
 }
 </script>
