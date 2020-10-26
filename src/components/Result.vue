@@ -81,6 +81,7 @@
 
 <script>
 import { mapMutations, mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -122,7 +123,6 @@ export default {
           this.$error('Сначала нужно ввести все данные, и выбрать шрифт!')
           return
         } else {
-          this.submitTitles()
           this.$router.push('/colors')
         }
       }
@@ -132,7 +132,35 @@ export default {
           return
         } else {
           console.log(this.result)
+          this.getUser()
         }
+      }
+    },
+    async getUser() {
+      try {
+        axios
+          .post('https://jsonplaceholder.typicode.com/posts', {
+            Picture: this.result[0].name,
+            Border: this.result[1].name,
+            Title: {
+              1: this.result[2].title,
+              2: this.result[2].signature,
+              3: this.result[2].date,
+              4: this.result[2].font,
+            },
+            Print: this.result[3].color.map((item) => item.name),
+            Price: this.result
+              .map((item) => item.price)
+              .reduce((a, b) => a + b, 0),
+          })
+          .then(function(response) {
+            console.log(response)
+          })
+          .catch(function(error) {
+            console.log(error)
+          })
+      } catch (e) {
+        console.log(e)
       }
     },
   },

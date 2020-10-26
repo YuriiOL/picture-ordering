@@ -15,6 +15,7 @@ export default new Vuex.Store({
     font: '',
     titles: null,
     router: '',
+    chosenColors: [],
   },
   getters: {
     cart: (state) => state.cart,
@@ -24,6 +25,7 @@ export default new Vuex.Store({
     font: (state) => state.font,
     titles: (state) => state.titles,
     router: (state) => state.router,
+    chosenColors: (state) => state.chosenColors,
   },
   mutations: {
     submitTitles(state) {

@@ -80,6 +80,9 @@ export default {
   mounted() {
     this.$store.state.router = '/titles'
   },
+  beforeDestroy() {
+    this.submitTitles()
+  },
 }
 </script>
 

@@ -21,27 +21,30 @@ export default {
   data() {
     return {
       colors: this.$store.state.colorsData.colors,
-      chosenColors: [],
     }
   },
   methods: {
     addColors(color) {
-      this.chosenColors.push(color)
-      let toRemove = this.chosenColors.filter(
+      this.$store.state.chosenColors.push(color)
+      let toRemove = this.$store.state.chosenColors.filter(
         (item, index, array) => array.indexOf(item) !== index
       )
-      this.chosenColors = this.chosenColors.filter(
+      this.$store.state.chosenColors = this.$store.state.chosenColors.filter(
         (el) => !toRemove.includes(el)
       )
       this.$store.state.cart.splice(3, 1, {
-        color: this.chosenColors,
-        price: this.chosenColors.length >= 3 ? 10 : 0,
+        color: this.$store.state.chosenColors,
+        price: this.$store.state.chosenColors.length >= 3 ? 10 : 0,
       })
     },
   },
   mounted() {
     this.$message('Выберите цвет отпечатков!')
     this.$store.state.router = '/colors'
+  },
+  updated() {
+    if (this.$store.state.chosenColors.length === 1)
+      this.$message('Верхнее меню теперь доступно!')
   },
 }
 </script>
