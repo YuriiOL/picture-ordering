@@ -9,6 +9,7 @@
         @click="
           color.select = !color.select
           addColors(color)
+          sayInfo()
         "
         v-bind:class="{ select: color.select }"
       />
@@ -21,6 +22,7 @@ export default {
   data() {
     return {
       colors: this.$store.state.colorsData.colors,
+      headAvaileble: 0,
     }
   },
   methods: {
@@ -37,14 +39,18 @@ export default {
         price: this.$store.state.chosenColors.length >= 3 ? 10 : 0,
       })
     },
+    sayInfo() {
+      if (this.headAvaileble == 0) {
+        this.headAvaileble++
+        this.$message('Верхнее меню теперь доступно!')
+      } else {
+        return
+      }
+    },
   },
   mounted() {
     this.$message('Выберите цвет отпечатков!')
     this.$store.state.router = '/colors'
-  },
-  updated() {
-    if (this.$store.state.chosenColors.length === 1)
-      this.$message('Верхнее меню теперь доступно!')
   },
 }
 </script>
